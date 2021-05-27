@@ -8,7 +8,6 @@ end_date = input("Enter max date: (YYYY-MM-DD): ")
 
 start_date = datetime.date.fromisoformat(start_date)
 end_date = datetime.date.fromisoformat(end_date)
-end_date += datetime.timedelta(days=1)
 delta = datetime.timedelta(days=7)
 
 data = {}

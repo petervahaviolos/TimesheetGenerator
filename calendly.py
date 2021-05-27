@@ -1,6 +1,6 @@
 import requests
 import os
-from datetime import datetime
+from datetime import datetime, timedelta
 from enum import Enum
 
 if not os.path.exists("token.txt"):
@@ -36,6 +36,9 @@ def get_events(start_date: str, end_date: str, sort_type=SortType.ASCDENDING) ->
     '''
     Returns list of Calendly events of uri from start_date to end_date in sort_type order
     '''
+    end_date = datetime.strptime(end_date, "%Y-%m-%d")
+    end_date += timedelta(days=1)
+    end_date = datetime.strftime(end_date, "%Y-%m-%d")
     sort = f"start_time:{sort_type.value}"
 
     params = {

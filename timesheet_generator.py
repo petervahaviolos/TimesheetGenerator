@@ -41,7 +41,6 @@ if __name__ == '__main__':
 
     start_date = input("Enter min date (YYYY-MM-DD): ")
     end_date = input("Enter max date: (YYYY-MM-DD): ")
-    end_date += timedelta(days=1)
     events = calendly.get_events(start_date, end_date)
     active_events = calendly.get_active_events(events)
 
